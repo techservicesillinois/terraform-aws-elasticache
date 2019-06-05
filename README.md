@@ -39,11 +39,11 @@ The following arguments are supported:
 
 * `apply_immediately` - (Optional) Specifies whether any modifications are applied immediately, or during the next maintenance window. Defaults to `false`.
 
-* `redis_maintenance_window` - (Optional) Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: sun:05:00-sun:09:00.
+* `redis_maintenance_window` - (Optional) Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: sun:05:00-sun:09:00. Defaults to `fri:08:00-fri:09:00`.
 
 * `redis_snapshot_retention_limit` - (Optional) The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a snapshot_retention_limit is not supported on cache.t1.micro or cache.t2.* cache nodes. Defaults to `0`.
 
-* `redis_snapshot_window` - (Optional) The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: 05:00-09:00.
+* `redis_snapshot_window` - (Optional) The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: 05:00-09:00. Defaults to `06:30-07:30`.
 
 network_configuration
 -----------------------
