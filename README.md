@@ -9,8 +9,8 @@ Example Usage
 module "elasticache" {
   source = "git@github.com:techservicesillinois/terraform-aws-elasticache"
 
-  name       = "service-name"
-  redis_failover     = "2"
+  name               = "service-name"
+  redis_clusters     = "2"
 
   network_configuration {
     vpc  = "name-of-vpc"
