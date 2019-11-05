@@ -1,5 +1,7 @@
 # elasticache
 
+[![Build Status](https://drone.techservices.illinois.edu/api/badges/techservicesillinois/terraform-aws-elasticache/status.svg)](https://drone.techservices.illinois.edu/techservicesillinois/terraform-aws-elasticache)
+
 Provides an ElastiCache Replication Group resource. **Currently this module only supports Redis, not memcached**.
 
 Example Usage
@@ -10,9 +12,9 @@ module "elasticache" {
   source = "git@github.com:techservicesillinois/terraform-aws-elasticache"
 
   name               = "service-name"
-  redis_clusters     = "2"
+  redis_clusters     = 2
 
-  network_configuration {
+  network_configuration = {
     vpc  = "name-of-vpc"
     tier = "public"
     security_group_names = "service-redis-clients"

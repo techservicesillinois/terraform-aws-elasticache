@@ -4,7 +4,7 @@ variable "name" {
 
 variable "redis_clusters" {
   description = "Number of Redis cache clusters (nodes) to create"
-  default     = "2"
+  default     = 2
 }
 
 variable "redis_node_type" {
@@ -13,7 +13,7 @@ variable "redis_node_type" {
 }
 
 variable "redis_failover" {
-  default = "true"
+  default = true
 }
 
 variable "redis_version" {
@@ -27,7 +27,7 @@ variable "redis_port" {
 
 variable "apply_immediately" {
   description = "Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is false."
-  default     = "false"
+  default     = false
 }
 
 variable "redis_maintenance_window" {
@@ -48,5 +48,6 @@ variable "redis_snapshot_retention_limit" {
 ### NETWORK CONFIGURATION block
 variable "network_configuration" {
   description = "A network configuration block"
+  type        = map(string)
   default     = {}
 }
