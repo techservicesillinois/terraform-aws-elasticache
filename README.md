@@ -1,6 +1,6 @@
 # elasticache
 
-[![Build Status](https://drone.techservices.illinois.edu/api/badges/techservicesillinois/terraform-aws-elasticache/status.svg)](https://drone.techservices.illinois.edu/techservicesillinois/terraform-aws-elasticache)
+[![Terraform actions status](https://github.com/techservicesillinois/terraform-aws-elasticache/workflows/terraform/badge.svg)](https://github.com/techservicesillinois/terraform-aws-elasticache/actions)
 
 Provides an ElastiCache Replication Group resource. **Currently this module only supports Redis, not memcached**.
 
