@@ -15,8 +15,8 @@ module "elasticache" {
   redis_clusters     = 2
 
   network_configuration = {
-    vpc  = "name-of-vpc"
-    tier = "public"
+    vpc                  = "name-of-vpc"
+    subnet_id            = "public"
     security_group_names = "service-redis-clients"
   }
 }
@@ -52,9 +52,9 @@ network_configuration
 
 A `network_configuration` block supports the following:
 
-* `tier` - (Required) A subnet tier tag (e.g., public, private, nat) to determine subnets to be associated with the task orservice.
+* `subnet_type` - (Required) Subnet type (e.g., 'campus', 'private', 'public') for resource placement.
 
-* `vpc` - (Required) The name of the virtual private cloud to be associated with the task or service. **NOTE:** Required when using `tier`.
+* `vpc` - (Required) The name of the virtual private cloud to be associated with the task or service. **NOTE:** Required when using `subnet_type`.
 
 * `security_group_names` - (Required) Additonal security groups to associated with the task or service. This is a space delimited string list of security group names.  
 
