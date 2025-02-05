@@ -5,7 +5,8 @@ REPO := $(shell basename $(shell git remote get-url origin) .git)
 all: test
 
 test: .terraform
-	AWS_DEFAULT_REGION=us-east-2 terraform validate
+	terraform init -backend=false
+	terraform validate
 	terraform fmt -check
 	! egrep "TF-UPGRADE-TODO|cites-illinois|as-aws-modules" *.tf README.md
 	# Do NOT put terraform-aws in the title
@@ -23,11 +24,13 @@ test: .terraform
 	# DO put a badge in top-level README.md
 	grep -q "\[\!\[Terraform actions status\]([^)]*$(REPO)/workflows/terraform/badge.svg)\]([^)]*$(REPO)/actions)" README.md
 	# Do NOT use ?ref= in source lines in a README.md!
-	! grep 'source\s*=.*?ref=' README.md
+	! grep 'source\s*=.*?ref=' *.tf README.md
 	# Do NOT start a source line with git::
 	! grep 'source\s*=\s*"git::' *.tf README.md
 	# Do NOT use .git in a source line
 	! grep 'source\s*=.*\.git.*"' *.tf README.md
+	@echo ""
+	@echo "tests passed"
 
 # Launches the Makefile inside a container
 docker: 
